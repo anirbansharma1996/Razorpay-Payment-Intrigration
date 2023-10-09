@@ -1,14 +1,22 @@
-import { Button, Image, Text, VStack } from '@chakra-ui/react'
-import React from 'react'
+import React from "react";
 
 const Card = ({ amount, img, checkoutHandler }) => {
-    return (
-        <VStack>
-            <Image src={img} boxSize={"64"} objectFit="cover" />
-            <Text>₹{amount}</Text>
-            <Button onClick={() => checkoutHandler(amount)}>Buy Now</Button>
-        </VStack>
-    )
-}
+  return (
+    <>
+      <div className="card" style={{ width: "18rem" }}>
+        <img src={img} className="card-img-top w-50 h-50" alt={img} />
+        <div className="card-body">
+          <h4>₹{amount}</h4>
+          <button
+            onClick={() => checkoutHandler(amount)}
+            className="btn btn-primary"
+          >
+            Buy Now
+          </button>
+        </div>
+      </div>
+    </>
+  );
+};
 
-export default Card
+export default Card;

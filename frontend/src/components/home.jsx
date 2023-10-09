@@ -1,8 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Stack } from "@chakra-ui/react";
+import { checkoutHandler } from "../api/payment.api.js";
 import Card from "./card";
 
 import axios from "axios";
+const data = [
+  {
+    amount: 50000,
+    image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+  },
+  {
+    amount: 3000,
+    image:
+      "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
+  },
+];
 
 const Home = () => {
   const checkoutHandler = async (amount) => {
@@ -39,33 +51,22 @@ const Home = () => {
       },
     };
     const razor = new window.Razorpay(options);
-    razor.open();
+    return razor.open();
   };
 
   return (
-    <Box>
-      <Stack
-        h={"100vh"}
-        alignItems="center"
-        justifyContent="center"
-        direction={["column", "row"]}
-      >
-        <Card
-          amount={5000}
-          img={
-            "https://cdn.shopify.com/s/files/1/1684/4603/products/MacBookPro13_Mid2012_NonRetina_Silver.png"
-          }
-          checkoutHandler={checkoutHandler}
-        />
-        <Card
-          amount={3000}
-          img={
-            "http://i1.adis.ws/i/canon/eos-r5_front_rf24-105mmf4lisusm_32c26ad194234d42b3cd9e582a21c99b"
-          }
-          checkoutHandler={checkoutHandler}
-        />
-      </Stack>
-    </Box>
+    <div>
+      <div className="container d-flex">
+        {data?.map((el) => (
+          <Card
+            key={el.amount}
+            amount={el.amount}
+            img={el.image}
+            checkoutHandler={checkoutHandler}
+          />
+        ))}
+      </div>
+    </div>
   );
 };
 
