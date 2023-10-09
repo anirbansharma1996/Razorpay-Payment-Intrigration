@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { Box, Stack } from "@chakra-ui/react";
-import { checkoutHandler } from "../api/payment.api.js";
+import React from "react";
 import Card from "./card";
 
 import axios from "axios";
