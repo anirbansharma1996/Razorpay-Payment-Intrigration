@@ -1,21 +1,13 @@
 import axios from "axios";
 
 export const checkoutHandler = async (amount) => {
-  const {
-    data: { key },
-  } = await axios.get("http://www.localhost:5500/api/getkey");
-
-  const {
-    data: { order },
-  } = await axios.post("http://localhost:5500/api/checkout", {
-    amount,
-  });
-
+  const {data: { key }} = await axios.get("http://www.localhost:5500/api/getkey");
+  const {data: { order }} = await axios.post("http://localhost:5500/api/checkout", {amount});
   const options = {
     key,
     amount: order.amount,
-    currency: "INR",
-    name: "Divine Beauty",
+    c: "INR",
+    name: "Anirban Divine Beauty",
     description: "payments page",
     image:
       "https://png.pngtree.com/element_our/sm/20180515/sm_5afafeb5de543.jpg",
@@ -23,8 +15,8 @@ export const checkoutHandler = async (amount) => {
     callback_url: "http://localhost:5500/api/verification",
     prefill: {
       name: "Divine Beauty",
-      email: "divinebeauty@example.com",
-      contact: "9083527139",
+      email: "DivineBeauty@example.com",
+      contact: "9083527130",
     },
     notes: {
       address: "Jalpaiguri, WB",

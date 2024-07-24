@@ -3,7 +3,7 @@ import Card from "./card";
 import { checkoutHandler } from "./api/payment.api";
 const data = [
   {
-    amount: 50000,
+    amount: 5000,
     image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
   },
   {
@@ -15,7 +15,6 @@ const data = [
 
 const Home = () => {
  
-
   return (
     <div>
       <div className="container d-flex">
